@@ -11,14 +11,16 @@ const dataEntry = async (daata) => {
     const { matchBy, isCreate, data: logData } = options;
 
     // Find the option by value or text
-    const option = Array.from(selectElement.options).find((opt) =>
-      matchBy === "value"
-        ? opt.value?.trim() === matchValue?.trim()
-        : opt.text?.trim() === matchValue?.trim()
-    );
+    const option = Array.from(selectElement.options).find((opt) => {
+      if (matchBy === "value") {
+        return opt.value?.trim() == matchValue?.trim();
+      }
+      return opt.text?.trim() == matchValue?.trim();
+    });
 
     if (option) {
       // Select the found option
+
       option.selected = true;
       selectElement.dispatchEvent(new Event("change", { bubbles: true }));
     } else if (isCreate) {
@@ -58,7 +60,6 @@ const dataEntry = async (daata) => {
       // Select Order
       if (d.PoNum) {
         selectOption(document.getElementById("cbOrdini_0"), d.PoNum, {
-          matchBy: "text",
           data: d,
         });
         await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -67,8 +68,9 @@ const dataEntry = async (daata) => {
       if (d.Style) {
         selectOption(document.getElementById("cbStyle_0"), d.Style, {
           data: d,
+          matchBy: "value",
         });
-        await new Promise((resolve) => setTimeout(resolve, 2500));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
       }
       // Special Client
       if (d.SpecialClient) {
@@ -93,7 +95,6 @@ const dataEntry = async (daata) => {
         selectOption(document.getElementById("cbColor_0"), d.Color, {
           data: d,
           isCreate: true,
-          findBy: "text",
         });
         await new Promise((resolve) => setTimeout(resolve, 1000));
       }
