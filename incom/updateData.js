@@ -188,7 +188,6 @@ async function updateDataByCtn(mydata) {
       if (d.CBoxNum) {
         input.onchange = null;
         input.value = d.CBoxNum;
-        //parent.querySelector("txtcounter_0")
         // .dispatchEvent(new Event("change", { bubbles: true }));
         input.onchange = null;
       }
