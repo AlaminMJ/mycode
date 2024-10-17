@@ -82,7 +82,7 @@ async function updateDataByCtn(mydata) {
       // Special Client
       if (d.SpecialClient) {
         selectOption(
-          document.getElementById("cbClientSpecial_0"),
+          parent.querySelector('select[id^="cbClientSpecial_"]'),
           d.SpecialClient,
           { data: d, matchBy: "value" }
         );
@@ -91,7 +91,7 @@ async function updateDataByCtn(mydata) {
       // Special Client PO
       if (d.SpecialClientPO) {
         selectOption(
-          document.getElementById("cbPoClientSpecial_0"),
+          parent.querySelector('select[id^="cbPoClientSpecial_"]'),
           d.SpecialClientPO,
           { data: d, matchBy: "value" }
         );
