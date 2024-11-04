@@ -55,7 +55,10 @@ async function updateDataByCtn(mydata) {
   }
 
   // Get all input elements with IDs starting with 'txtctn_'
-  const inputs = document.querySelectorAll('input[id^="txtcounter_"]');
+  const inputs = Array.from(
+    document.querySelectorAll('input[id^="txtcounter_"]')
+  ).reverse();
+  inputs.pop();
   for (let input of inputs) {
     input.onchange = null;
     const d = mydata.find((item) => item.BoxNum === input.value);
