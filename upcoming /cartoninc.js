@@ -1,5 +1,4 @@
-// advance code
-const cartonIncrement = (startFrom = undefined, repeatPattern = []) => {
+const cartonIncrement = async (startFrom = undefined, repeatPattern = []) => {
   const inputs = Array.from(
     document.querySelectorAll('input[id^="txtcounter_"]')
   ).reverse();
@@ -12,6 +11,9 @@ const cartonIncrement = (startFrom = undefined, repeatPattern = []) => {
   // To track the current repeat value and the remaining repetitions
   let repeatCount = 0;
   let currentRepeatValue = null;
+
+  // Delay function for 1 second
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   for (const input of inputs) {
     const parent = input?.parentElement?.parentElement;
@@ -35,7 +37,8 @@ const cartonIncrement = (startFrom = undefined, repeatPattern = []) => {
       }
     }
 
-    // Simulate the click action
+    // Wait 1 second before clicking the save button
+    await delay(200);
     parent.querySelector('[id^="bSaveDettaglio_"]')?.click();
 
     // Increment counter only if not in a repeat phase
@@ -45,25 +48,3 @@ const cartonIncrement = (startFrom = undefined, repeatPattern = []) => {
   }
   console.log("done");
 };
-
-// Example usage:
-// cartonIncrement(1, [[2, 3]]);
-// This will start from 1, then when it reaches 2, it will repeat 2 three times, then continue to 3, 4, etc.
-
-// old code
-// const cartonIncriment = (startFrom = undefined) => {
-//   const inputs = Array.from(
-//     document.querySelectorAll('input[id^="txtcounter_"]')
-//   ).reverse();
-//   inputs.pop();
-//   startFrom = startFrom ? startFrom : Number(inputs[0].value);
-//   for (const input of inputs) {
-//     const parent = input?.parentElement?.parentElement;
-//     input.onchange = null;
-//     input.value = startFrom;
-//     parent.querySelector('[id^="bSaveDettaglio_"]').click();
-//     startFrom++;
-//   }
-//   console.log("done");
-// };
-// cartonIncriment();
