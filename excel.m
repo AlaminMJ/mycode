@@ -1,0 +1,1 @@
+List.Repeat({[Index]}, [QTY])
