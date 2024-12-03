@@ -1,4 +1,8 @@
-const cartonIncrement = async (startFrom = undefined, repeatPattern = []) => {
+const cartonIncrement = async (
+  startFrom = undefined,
+  skipNumbers = [],
+  repeatPattern = []
+) => {
   const inputs = Array.from(
     document.querySelectorAll('input[id^="txtcounter_"]')
   ).reverse();
@@ -15,6 +19,14 @@ const cartonIncrement = async (startFrom = undefined, repeatPattern = []) => {
   // Delay function for 1 second
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+  // Helper function to find the next valid counter (skipping unwanted numbers)
+  const getNextValidCounter = (currentCounter) => {
+    while (skipNumbers.includes(currentCounter)) {
+      currentCounter++;
+    }
+    return currentCounter;
+  };
+
   for (const input of inputs) {
     const parent = input?.parentElement?.parentElement;
     input.onchange = null;
@@ -24,6 +36,9 @@ const cartonIncrement = async (startFrom = undefined, repeatPattern = []) => {
       input.value = currentRepeatValue; // Set the repeat value
       repeatCount--; // Decrement the repeat count
     } else {
+      // Skip numbers that should be ignored
+      counter = getNextValidCounter(counter);
+
       // Check if the current counter has a matching repeat pattern
       const match = repeatPattern.find((pattern) => pattern[0] === counter);
       if (match) {
@@ -43,8 +58,18 @@ const cartonIncrement = async (startFrom = undefined, repeatPattern = []) => {
 
     // Increment counter only if not in a repeat phase
     if (repeatCount <= 0) {
-      counter++; // Increment normally if no repeats are pending
+      counter++;
     }
   }
   console.log("done");
 };
+
+// Usage example:
+cartonIncrement(
+  undefined,
+  [3, 7, 12],
+  [
+    [5, 2],
+    [10, 3],
+  ]
+);
