@@ -103,364 +103,172 @@ const update = async (data, skipBoxNumbers = []) => {
 };
 const data = [
   {
-    BoxNum: "1",
-    GWeight: "11.18",
-  },
-  {
-    BoxNum: "2",
-    GWeight: "12.6",
-  },
-  {
-    BoxNum: "3",
-    GWeight: "12.93",
-  },
-  {
-    BoxNum: "4",
-    GWeight: "12.93",
-  },
-  {
-    BoxNum: "5",
-    GWeight: "12.93",
-  },
-  {
-    BoxNum: "6",
-    GWeight: "12.93",
-  },
-  {
-    BoxNum: "7",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "8",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "9",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "10",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "11",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "12",
-    GWeight: "14.17",
-  },
-  {
-    BoxNum: "13",
-    GWeight: "14.17",
-  },
-  {
-    BoxNum: "14",
-    GWeight: "14.17",
-  },
-  {
-    BoxNum: "15",
-    GWeight: "12.95",
-  },
-  {
-    BoxNum: "16",
-    GWeight: "12.95",
-  },
-  {
-    BoxNum: "17",
-    GWeight: "13.9",
-  },
-  {
-    BoxNum: "18",
-    GWeight: "11.75",
-  },
-  {
-    BoxNum: "19",
-    GWeight: "15.74",
-  },
-  {
-    BoxNum: "20",
-    GWeight: "12.9",
-  },
-  {
-    BoxNum: "21",
-    GWeight: "12.88",
-  },
-  {
-    BoxNum: "22",
-    GWeight: "12.64",
-  },
-  {
-    BoxNum: "23",
-    GWeight: "11.69",
-  },
-  {
-    BoxNum: "24",
-    GWeight: "13.01",
-  },
-  {
-    BoxNum: "25",
-    GWeight: "13.96",
-  },
-  {
-    BoxNum: "26",
-    GWeight: "12.47",
-  },
-  {
-    BoxNum: "27",
-    GWeight: "13.16",
-  },
-  {
-    BoxNum: "28",
-    GWeight: "12.93",
-  },
-  {
-    BoxNum: "29",
-    GWeight: "12.93",
-  },
-  {
-    BoxNum: "30",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "31",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "32",
-    GWeight: "14.17",
-  },
-  {
-    BoxNum: "33",
-    GWeight: "14.17",
-  },
-  {
-    BoxNum: "34",
-    GWeight: "12.95",
-  },
-  {
-    BoxNum: "35",
-    GWeight: "15.29",
-  },
-  {
-    BoxNum: "36",
-    GWeight: "12.6",
-  },
-  {
-    BoxNum: "37",
-    GWeight: "12.93",
-  },
-  {
-    BoxNum: "38",
-    GWeight: "12.93",
-  },
-  {
-    BoxNum: "39",
-    GWeight: "12.93",
+    BoxNum: "40",
+    CBoxNum: "1",
   },
   {
     BoxNum: "40",
-    GWeight: "13.38",
+    CBoxNum: "2",
   },
   {
-    BoxNum: "41",
-    GWeight: "13.38",
+    BoxNum: "40",
+    CBoxNum: "3",
   },
   {
-    BoxNum: "42",
-    GWeight: "13.38",
+    BoxNum: "40",
+    CBoxNum: "4",
   },
   {
-    BoxNum: "43",
-    GWeight: "13.38",
+    BoxNum: "40",
+    CBoxNum: "5",
   },
   {
-    BoxNum: "44",
-    GWeight: "14.17",
+    BoxNum: "40",
+    CBoxNum: "6",
   },
   {
-    BoxNum: "45",
-    GWeight: "14.17",
+    BoxNum: "40",
+    CBoxNum: "7",
   },
   {
-    BoxNum: "46",
-    GWeight: "14.17",
+    BoxNum: "40",
+    CBoxNum: "8",
   },
   {
-    BoxNum: "47",
-    GWeight: "12.95",
+    BoxNum: "40",
+    CBoxNum: "9",
   },
   {
-    BoxNum: "48",
-    GWeight: "12.95",
+    BoxNum: "40",
+    CBoxNum: "10",
   },
   {
-    BoxNum: "49",
-    GWeight: "15",
+    BoxNum: "40",
+    CBoxNum: "11",
   },
   {
-    BoxNum: "50",
-    GWeight: "12.93",
+    BoxNum: "40",
+    CBoxNum: "12",
   },
   {
-    BoxNum: "51",
-    GWeight: "13.38",
+    BoxNum: "40",
+    CBoxNum: "13",
   },
   {
-    BoxNum: "52",
-    GWeight: "13.38",
+    BoxNum: "40",
+    CBoxNum: "14",
   },
   {
-    BoxNum: "53",
-    GWeight: "14.17",
+    BoxNum: "40",
+    CBoxNum: "15",
   },
   {
-    BoxNum: "54",
-    GWeight: "12.95",
+    BoxNum: "40",
+    CBoxNum: "16",
   },
   {
-    BoxNum: "55",
-    GWeight: "11.06",
+    BoxNum: "40",
+    CBoxNum: "17",
   },
   {
-    BoxNum: "56",
-    GWeight: "11.87",
+    BoxNum: "40",
+    CBoxNum: "18",
   },
   {
-    BoxNum: "57",
-    GWeight: "11.57",
+    BoxNum: "40",
+    CBoxNum: "19",
   },
   {
-    BoxNum: "58",
-    GWeight: "12.6",
+    BoxNum: "40",
+    CBoxNum: "20",
   },
   {
-    BoxNum: "59",
-    GWeight: "12.93",
+    BoxNum: "40",
+    CBoxNum: "21",
   },
   {
-    BoxNum: "60",
-    GWeight: "12.93",
+    BoxNum: "40",
+    CBoxNum: "22",
   },
   {
-    BoxNum: "61",
-    GWeight: "12.93",
+    BoxNum: "40",
+    CBoxNum: "23",
   },
   {
-    BoxNum: "62",
-    GWeight: "13.38",
+    BoxNum: "40",
+    CBoxNum: "24",
   },
   {
-    BoxNum: "63",
-    GWeight: "13.38",
+    BoxNum: "40",
+    CBoxNum: "25",
   },
   {
-    BoxNum: "64",
-    GWeight: "13.38",
+    BoxNum: "40",
+    CBoxNum: "26",
   },
   {
-    BoxNum: "65",
-    GWeight: "14.17",
+    BoxNum: "40",
+    CBoxNum: "27",
   },
   {
-    BoxNum: "66",
-    GWeight: "14.17",
+    BoxNum: "40",
+    CBoxNum: "28",
   },
   {
-    BoxNum: "67",
-    GWeight: "12.95",
+    BoxNum: "40",
+    CBoxNum: "29",
   },
   {
-    BoxNum: "68",
-    GWeight: "12.97",
+    BoxNum: "40",
+    CBoxNum: "30",
   },
   {
-    BoxNum: "69",
-    GWeight: "14.76",
+    BoxNum: "40",
+    CBoxNum: "31",
   },
   {
-    BoxNum: "70",
-    GWeight: "14.36",
+    BoxNum: "40",
+    CBoxNum: "32",
   },
   {
-    BoxNum: "71",
-    GWeight: "12.93",
+    BoxNum: "40",
+    CBoxNum: "33",
   },
   {
-    BoxNum: "72",
-    GWeight: "13.38",
+    BoxNum: "40",
+    CBoxNum: "34",
   },
   {
-    BoxNum: "73",
-    GWeight: "14.17",
+    BoxNum: "40",
+    CBoxNum: "35",
   },
   {
-    BoxNum: "74",
-    GWeight: "10.01",
+    BoxNum: "40",
+    CBoxNum: "36",
   },
   {
-    BoxNum: "75",
-    GWeight: "13.47",
+    BoxNum: "40",
+    CBoxNum: "37",
   },
   {
-    BoxNum: "76",
-    GWeight: "12.2",
+    BoxNum: "40",
+    CBoxNum: "38",
   },
   {
-    BoxNum: "77",
-    GWeight: "12.6",
+    BoxNum: "40",
+    CBoxNum: "39",
   },
   {
-    BoxNum: "78",
-    GWeight: "12.93",
+    BoxNum: "40",
+    CBoxNum: "40",
   },
   {
-    BoxNum: "79",
-    GWeight: "12.93",
+    BoxNum: "40",
+    CBoxNum: "41",
   },
   {
-    BoxNum: "80",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "81",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "82",
-    GWeight: "14.17",
-  },
-  {
-    BoxNum: "83",
-    GWeight: "13.16",
-  },
-  {
-    BoxNum: "84",
-    GWeight: "9.2",
-  },
-  {
-    BoxNum: "85",
-    GWeight: "10.13",
-  },
-  {
-    BoxNum: "86",
-    GWeight: "12.04",
-  },
-  {
-    BoxNum: "87",
-    GWeight: "13.38",
-  },
-  {
-    BoxNum: "88",
-    GWeight: "13.82",
-  },
-  {
-    BoxNum: "89",
-    GWeight: "12.96",
-  },
-  {
-    BoxNum: "90",
-    GWeight: "13.29",
+    BoxNum: "40",
+    CBoxNum: "42",
   },
 ];
 // Example usage
