@@ -1,51 +1,77 @@
-const cartonIncrement = async (startFrom = undefined, repeatPattern = []) => {
+const cartonIncrement = async (options) => {
+  const {
+    startFrom = undefined,
+    skipNumbers = [],
+    repeatPattern = [],
+    skipItems = { first: 0, last: 0 },
+    delayTime = 200, // Delay between each operation (in ms)
+  } = options;
+
+  // Grab all input elements and reverse the array
   const inputs = Array.from(
     document.querySelectorAll('input[id^="txtcounter_"]')
-  ).reverse();
-  inputs.pop();
+  )
+    .reverse()
+    .slice(skipItems.first, -skipItems.last || undefined);
 
-  // Start with startFrom if provided, otherwise default to the first input's value
-  let counter = startFrom !== undefined ? startFrom : Number(inputs[0].value);
+  // Start from `startFrom` or the value of the first input if not provided
+  let counter = startFrom ?? Number(inputs[0]?.value);
   console.log("Starting from:", counter);
 
-  // To track the current repeat value and the remaining repetitions
+  // Track repeat logic
   let repeatCount = 0;
   let currentRepeatValue = null;
 
-  // Delay function for 1 second
+  // Helper function to find the next valid counter, skipping numbers in `skipNumbers`
+  const getNextValidCounter = (currentCounter) => {
+    while (skipNumbers.includes(currentCounter)) currentCounter++;
+    return currentCounter;
+  };
+
+  // Delay function to pause between actions
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+  // Loop through the inputs and update values
   for (const input of inputs) {
     const parent = input?.parentElement?.parentElement;
+
+    // Remove any previous onchange events
     input.onchange = null;
 
-    // Check if we have a repeat value in progress
+    // If repeat count is active, use the repeat value
     if (repeatCount > 0) {
-      input.value = currentRepeatValue; // Set the repeat value
-      repeatCount--; // Decrement the repeat count
+      input.value = currentRepeatValue;
+      repeatCount--;
     } else {
-      // Check if the current counter has a matching repeat pattern
-      const match = repeatPattern.find((pattern) => pattern[0] === counter);
-      if (match) {
-        // Start repeating this value
-        currentRepeatValue = match[0]; // The value to repeat
-        repeatCount = match[1] - 1; // The number of times to repeat minus one (as we set it already)
-        input.value = currentRepeatValue; // Set the repeat value
+      counter = getNextValidCounter(counter);
+
+      // Check if there's a repeat pattern for the current counter
+      const repeat = repeatPattern.find(([val]) => val === counter);
+      if (repeat) {
+        currentRepeatValue = repeat[0];
+        repeatCount = repeat[1] - 1; // Set the remaining repeat count
+        input.value = currentRepeatValue;
       } else {
-        // No repeat pattern found, set the input to the current counter
-        input.value = counter;
+        input.value = counter; // Regular counter assignment
       }
     }
 
-    // Wait 1 second before clicking the save button
-    await delay(200);
+    // Click save button after updating value
+    await delay(delayTime);
     parent.querySelector('[id^="bSaveDettaglio_"]')?.click();
 
-    // Increment counter only if not in a repeat phase
-    if (repeatCount <= 0) {
-      counter++; // Increment normally if no repeats are pending
-    }
+    // Only increment counter if not in repeat phase
+    if (repeatCount <= 0) counter++;
   }
-  console.log("done");
 };
-cartonIncrement();
+const opt = {
+  startFrom: 1,
+  // skipNumbers: [3, 7, 12],
+  // repeatPattern: [
+  //   [5, 2],
+  //   [10, 3],
+  // ],
+  // skipItems: { first: 5, last: 3 },
+};
+// Usage example:
+cartonIncrement(opt).finally(() => console.log("Oparation Done"));

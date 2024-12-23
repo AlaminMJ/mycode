@@ -23,4 +23,4 @@ const copy = (id, num=1) => {
   makeRequest();
 };
 
-copy();
+copy(id,1);

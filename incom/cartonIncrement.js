@@ -47,7 +47,7 @@ const cartonIncrement = (startFrom = undefined, repeatPattern = []) => {
 };
 
 // Example usage:
-// cartonIncrement(1, [[2, 3]]);
+cartonIncrement(1, [[2, 3]]);
 // This will start from 1, then when it reaches 2, it will repeat 2 three times, then continue to 3, 4, etc.
 
 // old code
